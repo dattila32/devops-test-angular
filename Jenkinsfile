@@ -7,16 +7,19 @@ pipeline {
                 sh 'npm install'
             }
         }
+       
         stage('Linting') {
             steps {
                 sh 'npm run lint'
             }
         }
+       
         stage('Testing') {
             steps {
                 sh 'npm run test'
             }
         }
+      
         stage('Docker build & Push') {
                     steps {
                     script {
@@ -28,15 +31,17 @@ pipeline {
                     }
                     }
         }
+
         stage('Docker run') {
             steps {
                 script {
-                    docker.image('devops-test-angular').withRun('-d=true -p 8080:80') {c ->
+                    docker.image('devops-test-angular').withRun('-d=true -p 8080:80') { c ->
                     docker.image('devops-test-angular').inside{
                      echo 'Application has been started'
-            }
+                    }
                 }
             }
+        }
         }
     }
 }
