@@ -25,17 +25,5 @@ pipeline {
                     }
                     }
         }
-
-        stage('Docker run') {
-            steps {
-                script {
-                    docker.image('devops-test-angular').withRun('-d=true -p 8080:80') { c ->
-                    docker.image('devops-test-angular').inside{
-                     echo 'Application has been started'
-                    }
-                }
-            }
-        }
-        }
     }
 }
