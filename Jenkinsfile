@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-
         stage('Docker build & Push') {
                     steps {
                     script {
@@ -18,6 +12,11 @@ pipeline {
                         }
                     }
                     }
+        }
+        stage('Docker run') {
+            steps {
+                sh 'docker run -p 8080:80 72821/devops-test-angular'
+            }
         }
     }
 }
