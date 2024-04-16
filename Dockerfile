@@ -4,9 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install -g npm@10.5.2`
-
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
+RUN apk add --no-cache python3 make g++
 
 RUN npm install
 
