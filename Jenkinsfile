@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Linting') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
         stage('Docker build & Push') {
                     steps {
                     script {
@@ -15,7 +21,7 @@ pipeline {
         }
         stage('Docker run') {
             steps {
-                sh 'docker run -it -p 8080:80 72821/devops-test-angular'
+                sh 'docker run 8080:80 72821/devops-test-angular'
             }
         }
     }
