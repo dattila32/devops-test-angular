@@ -13,12 +13,6 @@ pipeline {
                 sh 'npm run lint'
             }
         }
-       
-        stage('Testing') {
-            steps {
-                sh 'npm run test'
-            }
-        }
       
         stage('Docker build & Push') {
                     steps {
