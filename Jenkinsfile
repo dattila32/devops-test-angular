@@ -21,6 +21,7 @@ pipeline {
                         sh 'docker build -t devops-test-angular .'
                         sh 'docker tag devops-test-angular 72821/devops-test-angular'
                         sh 'docker push 72821/devops-test-angular'
+                        sh 'docker-compose -f docker-compose.yaml up -d'
                         }
                     }
                     }

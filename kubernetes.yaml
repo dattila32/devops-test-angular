@@ -1,0 +1,34 @@
+
+apiVersion: v1 # Kubernetes resource kind we are creating
+kind: Service  # Kubernetes API version
+metadata:
+  name: angular
+spec:
+  selector:
+    app: angular
+  ports:
+  - protocol: TCP
+    port: 80   # The port that the service is running on in the cluster
+    targetPort: 80   # The port exposed by the service
+    nodePort: 32000
+  type: NodePort     # type of the service.
+---
+apiVersion: apps/v1 # Kubernetes API version
+kind: Deployment  # Kubernetes resource kind we are creating
+metadata:
+  name: angular
+spec:
+  selector:
+    matchLabels:
+      app: angular
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: angular
+    spec:
+      containers:
+      - name: angular
+        image:  72821/devops-test-angular # Image that will be used to containers in the cluster
+        ports:
+        - containerPort: 80 # The port that the container is running on in the cluster
