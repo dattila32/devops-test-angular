@@ -4,12 +4,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: 'devopsDB'
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'root'
-      # You can use whatever password you like
-      MYSQL_PASSWORD: 'my-secret-pw'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'my-secret-pw'
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
     ports:
       # <Port exposed> : <MySQL Port running inside container>
       - '4000:4000'
