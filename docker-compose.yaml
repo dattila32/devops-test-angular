@@ -12,7 +12,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'my-secret-pw'
     ports:
       # <Port exposed> : <MySQL Port running inside container>
-      - '4000:3306'
+      - '4000:4000'
     expose:
       # Opens port 3306 on the container
       - '4000'
