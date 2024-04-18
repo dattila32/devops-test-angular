@@ -1,0 +1,9 @@
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let person of persons$ | async">
+        <div>
+            <span> {{ person.name }}</span>
+            <span> {{ person.age }}</span>
+        </div>
+    </mat-list-item>
+   
+  </mat-list>

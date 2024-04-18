@@ -7,10 +7,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { PersonComponent } from './person/person.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +26,12 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    AppRoutingModule
+    MatChipsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatListModule,
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
