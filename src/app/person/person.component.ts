@@ -16,8 +16,6 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {
     this.persons$ = this.service.getPersons();
-
-    this.persons$.subscribe( person => console.log(person));
   }
 
   
