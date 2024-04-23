@@ -1,4 +1,10 @@
 services:
+  web:
+    image: 72821/nginx-proxy
+    ports: 
+      - "80:80"
+    depends_on:
+      - backend
   db:
     image: mysql
     restart: always
