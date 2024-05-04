@@ -1,6 +1,6 @@
-FROM node:16-alpine as build
+FROM node:18-alpine as build
 
-WORKDIR /app
+WORKDIR /devops-test-angular
 
 COPY . .
 
@@ -8,16 +8,13 @@ RUN apk add --no-cache python3 make g++
 
 RUN npm install
 
-RUN ng build
-
-# Serve Application using Nginx Server
+RUN npm run build --prod
 
 FROM nginx:alpine
 
-# copy the custom nginx configuration file to the container in the
-# default location
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/dist/devops-test-angular/ /usr/share/nginx/html
+COPY --from=build /devops-test-angular/dist/devops-test-angular/ /usr/share/nginx/html
 
 EXPOSE 80
+
